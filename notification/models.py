@@ -54,14 +54,14 @@ class NoticeType(models.Model):
 
 # if this gets updated, the create() method below needs to be as well...
 NOTICE_MEDIA = (
-    ("email", _("Email")),
-    ("sms", _("SMS")),
+    ("e", _("Email")),
+    ("s", _("SMS")),
 )
 
 # how spam-sensitive is the medium
 NOTICE_MEDIA_DEFAULTS = {
-    "email": 2,
-    "sms": 2,
+    "e": 2,
+    "s": 2,
 }   
 
 class NoticeSetting(models.Model):
