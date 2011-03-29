@@ -54,14 +54,14 @@ class NoticeType(models.Model):
 
 # if this gets updated, the create() method below needs to be as well...
 NOTICE_MEDIA = (
-    ("e", _("Email")),
-    ("s", _("SMS")),
+    ("email", _("Email")),
+    ("sms", _("SMS")),
 )
 
 # how spam-sensitive is the medium
 NOTICE_MEDIA_DEFAULTS = {
-    "e": 2,
-    "s": 2,
+    "email": 2,
+    "sms": 2,
 }   
 
 class NoticeSetting(models.Model):
@@ -72,7 +72,7 @@ class NoticeSetting(models.Model):
 
     user = models.ForeignKey(User, verbose_name=_('user'))
     notice_type = models.ForeignKey(NoticeType, verbose_name=_('notice type'))
-    medium = models.CharField(_('medium'), max_length=1, choices=NOTICE_MEDIA)
+    medium = models.CharField(_('medium'), max_length=10, choices=NOTICE_MEDIA)
     send = models.BooleanField(_('send'))
 
     class Meta:
